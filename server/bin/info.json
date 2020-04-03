@@ -1,0 +1,14 @@
+{
+	"config": {
+		"server": {
+			"version": "0.0.0.1"
+		}
+	},
+	"changelog": [{
+		"version": "0.0.0.1",
+		"date": "03.11.2019",
+		"changes": [{
+			"1": "Added database and base classes"
+		}]
+	}]
+}

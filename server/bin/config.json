@@ -1,0 +1,15 @@
+{
+    "config": {
+        "server": {
+	    "host": "212.80.34.237",
+            "name": "DEV",
+            "port": 8398,
+            "log_level": "DEBUG"
+        },
+        "db": {
+            "name": "SQL_TEST",
+            "user": "postgres",
+            "password": "111"
+        }
+    }
+}

@@ -1,0 +1,2 @@
+to build server you must run build.bat
+co clear exe file you must run clear.bat

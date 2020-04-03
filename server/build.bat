@@ -1,0 +1,1 @@
+go build -o %CD%\bin\build.exe

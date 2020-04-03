@@ -1,0 +1,65 @@
+{{define "tasks/main.html"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SQL Tasks</title>
+  <link rel="stylesheet" href="pages/tasks/main.css">
+</head>
+
+<body id="capture" class="hold-transition login-page">
+  <div class="main">
+    <div>
+      <table id="ttasks">
+        <thead>
+          <tr>Tasks</tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+
+      </table>
+    </div>
+    <div class="form">
+      <div class="around">
+        <div class="one_row">
+          <div>Task ID:</div>
+          <div id="id"></div>
+        </div>
+        <div class="one_row">
+          <div class="right" >Stars:</div>
+          <div id="stars" class="right"></div>
+        </div>
+      </div>
+      <div id="task"></div>
+      <div class="one_row">
+        <div>Cols:</div>
+        <div id="cols"></div>
+      </div>
+      <div>SQL:</div>
+      <textarea id="sql" name="comment" rows="3">select * from trip</textarea>
+      <div class="one_row around">
+        <div>
+          <div>Answer:</div>
+          <div id="answer"></div>
+        </div>
+        <div>
+          <input class="right" type="button" value="Send" onclick="sendTaskCheck();">
+        </div>        
+      </div>
+      <div id="tgrid_back" class="grid_background">
+        <table id="tgrid">
+
+        </table>
+      </div>
+    </div>
+    <div></div>
+  </div>
+
+  <script src="pages/tasks/main.js"></script>
+</body>
+
+</html>
+{{ end }}

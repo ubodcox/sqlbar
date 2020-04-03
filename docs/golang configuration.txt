@@ -1,0 +1,2 @@
+this repository must be placed on path:
+C:\Users\<user>\go\src\sqlbar
