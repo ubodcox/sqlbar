@@ -11,7 +11,7 @@
     "tasks": [{
             "label": "Build and run",
             "type": "shell",
-            "command": "go build -o build.exe && build.exe ",
+            "command": "go build -o %CD%/bin/build.exe && %CD%/bin/build.exe",            
             "group": {
                 "kind": "build",
                 "isDefault": true

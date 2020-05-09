@@ -3,7 +3,7 @@
         "server": {
 	    "host": "212.80.34.237",
             "name": "DEV",
-            "port": 8398,
+            "port": 8400,
             "log_level": "DEBUG"
         },
         "db": {

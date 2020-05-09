@@ -49,10 +49,10 @@ func init() {
 
 	logs.Log.Info("IMPORTED")
 
-	/*chainMiddleWare := core.ChainMiddleWare(core.WithLogging, core.WithAuth)
+	chainMiddleWare := core.ChainMiddleWare(core.WithLogging, core.WithAuth)
 
 	//auth
-	 http.HandleFunc("/auth.html", func(w http.ResponseWriter, r *http.Request) {
+	/* http.HandleFunc("/auth.html", func(w http.ResponseWriter, r *http.Request) {
 		core.DefaultHandler(w, r, "users", "auth")
 	})
 	// html
@@ -74,10 +74,10 @@ func init() {
 	http.HandleFunc("/users/exec_delete.html", usersExecDeleteHandler) */
 
 	// api
-	/* http.HandleFunc("/api/v1/users/noauth", api.noauth)
+	//http.HandleFunc("/api/v1/users/noauth", api.noauth)
 	http.HandleFunc("/api/v1/users/auth", api.auth)
 	http.HandleFunc("/api/v1/users/data", chainMiddleWare(api.data))
 	http.HandleFunc("/api/v1/users/insert", chainMiddleWare(api.insert))
 	http.HandleFunc("/api/v1/users/update", chainMiddleWare(api.update))
-	http.HandleFunc("/api/v1/users/delete", chainMiddleWare(api.delete)) */
+	http.HandleFunc("/api/v1/users/delete", chainMiddleWare(api.delete))
 }

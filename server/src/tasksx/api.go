@@ -73,7 +73,7 @@ func (api *API) get(w http.ResponseWriter, r *http.Request) {
 
 	//logs.Log.Debug("id:", id)
 
-	tasks, err := sql.getTask(id)
+	task, err := sql.getTask(id)
 	if err != nil {
 		logs.Log.Error("sql.getTask", err)
 		json.NewEncoder(w).Encode(core.MakeEmptyResponse(-1, err.Error()))
@@ -83,7 +83,7 @@ func (api *API) get(w http.ResponseWriter, r *http.Request) {
 	//logs.Log.Debug("test 2", id, text, cols, stars)
 
 	json.NewEncoder(w).Encode(
-		makeGetTaskResponse(1, "", nil, tasks),
+		makeGetTaskResponse(1, "", nil, task),
 	)
 
 	//w.Header().Set("Content-Type", "application/json")
@@ -128,7 +128,7 @@ func (api *API) check(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	/*result, err := sql.CheckTask(id, request)
+	result, err := sql.CheckTask(id, request)
 	if err != nil {
 		logs.Log.Error("sql.getTask", err)
 		json.NewEncoder(w).Encode(core.MakeDefaultResponse(-1, err.Error(), nil))
@@ -137,6 +137,6 @@ func (api *API) check(w http.ResponseWriter, r *http.Request) {
 
 	json.NewEncoder(w).Encode(
 		makeCheckTaskResponse(1, "error parse form", nil, id, result),
-	)*/
+	)
 
 }

@@ -1,0 +1,44 @@
+GET	
+/api/v1/tasks/get?id=:id
+Input params: 
+id int64
+
+Returns task from id
+
+Return example:
+{"task": {	
+	"id":1,
+	"text":"test",
+	"cols":
+	[
+		{"test_id"},
+		{"test_name"}
+	],
+	"stars":4
+	}
+}
+
+//---
+
+GET /api/v1/tasks/check?id=:id&sql=:sql
+
+Input params: 
+id int64
+sql string
+
+Checks task and returning result
+
+Return example:s
+{
+	"isCorrect":false,
+	"list":
+	[
+	]
+	}
+}
+
+/api/v1/users/auth
+/api/v1/users/info
+/api/v1/users/register
+/api/v1/users/update
+/api/v1/users/delete

@@ -227,7 +227,8 @@ func (apiSql *SQL) compareSQL(baseSQL, userSQL string) bool {
 	return false
 }
 
-func (apiSql *SQL) checkTask(id int64, sql string) (results ResultList, err error) {
+// CheckTask checks tasks sql and returning result
+func (apiSql *SQL) CheckTask(id int64, sql string) (results ResultList, err error) {
 	logs.Log.PushFuncName("tasks", "sql", "checkTask")
 	defer logs.Log.PopFuncName()
 
