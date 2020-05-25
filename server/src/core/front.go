@@ -2,7 +2,6 @@ package core
 
 import (
 	"context"
-	"encoding/json"
 	"html/template"
 	"net/http"
 	"sqlbar/server/src/config"
@@ -276,7 +275,7 @@ func DefaultHandler(w http.ResponseWriter, r *http.Request, folder string, modul
 }
 
 // IDHandler func
-func IDHandler(w http.ResponseWriter, r *http.Request, folder string, module string) {
+/*func IDHandler(w http.ResponseWriter, r *http.Request, folder string, module string) {
 	logs.Log.PushFuncName("core", "front", "IDHandler")
 	defer logs.Log.PopFuncName()
 
@@ -308,4 +307,43 @@ func IDHandler(w http.ResponseWriter, r *http.Request, folder string, module str
 		logs.Log.Error("ExecuteTemplate", err.Error())
 		return
 	}
+}
+
+	t, err := template.ParseFiles("templates/pages/" + folder + "/" + module + ".html")
+	if err != nil {
+		logs.Log.Error("ParseFiles", err.Error())
+		return
+	}
+
+	err = t.ExecuteTemplate(w, folder+"/"+module+".html", IDData{ID: id, Port: config.ServerPort})
+	if err != nil {
+		logs.Log.Error("ExecuteTemplate", err.Error())
+		return
+	}
+}*/
+
+// ParseStr func
+func ParseStr(r *http.Request, param string, def string) string {
+	if _, ok := r.Form[param]; ok {
+		return r.Form[param][0]
+	}
+	return def
+}
+
+// ParseInt func
+func ParseInt(r *http.Request, param string, def int) int {
+	if _, ok := r.Form[param]; ok {
+		value, _ := strconv.Atoi(r.Form[param][0])
+		return value
+	}
+	return def
+}
+
+// ParseInt64 func
+func ParseInt64(r *http.Request, param string, def int64) int64 {
+	if _, ok := r.Form[param]; ok {
+		value, _ := strconv.ParseInt(r.Form[param][0], 10, 64)
+		return value
+	}
+	return def
 }

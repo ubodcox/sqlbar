@@ -1,6 +1,3 @@
-//TODO: add user table to sql
-//TODO: add role table to sql
-
 package main
 
 import (
@@ -15,7 +12,9 @@ import (
 
 	"net/http"
 	//_ "orders"
-	//_ "products"
+	_ "sqlbar/server/src/rating"
+	_ "sqlbar/server/src/tasks"
+	_ "sqlbar/server/src/users"
 	"strconv"
 	"time"
 
@@ -26,24 +25,21 @@ import (
 	_ "github.com/lib/pq"
 )
 
-// color console
-// go get github.com/fatih/color
-
 // Server settings
 const (
 	isLogInFile = true
 )
 
-func addHandle(path string) {
+/*func addHandle(path string) {
 	http.Handle(path, http.StripPrefix(path, http.FileServer(http.Dir("."+path))))
-}
+}*/
 
 func main() {
-	if isLogInFile {
+	/*if isLogInFile {
 		if logs.Init() {
 			defer logs.Deinit()
 		}
-	}
+	}*/
 	logs.Log.PushFuncName("MAIN", "main", "main")
 	defer logs.Log.PopFuncName()
 
@@ -61,7 +57,7 @@ func main() {
 	addHandle("/templates/dist/css/alt/")
 	addHandle("/templates/mycss/")
 	*/
-	addHandle("/pages/")
+	//addHandle("/pages/")
 
 	//addHandle("/templates/pages/toast/")
 
