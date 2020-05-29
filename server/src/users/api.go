@@ -324,8 +324,8 @@ func (api *API) auth(w http.ResponseWriter, r *http.Request) {
 		} */
 }
 
-func (api *API) data(w http.ResponseWriter, r *http.Request) {
-	logs.Log.PushFuncName("users", "api", "data")
+func (api *API) get(w http.ResponseWriter, r *http.Request) {
+	logs.Log.PushFuncName("users", "api", "get")
 	defer logs.Log.PopFuncName()
 
 	logs.Log.Debug("BEGIN")
@@ -441,8 +441,8 @@ func (api *API) insert(w http.ResponseWriter, r *http.Request) {
 	logs.Log.Debug("code: 1")
 }
 
-func (api *API) update(w http.ResponseWriter, r *http.Request) {
-	logs.Log.PushFuncName("users", "api", "update")
+func (api *API) set(w http.ResponseWriter, r *http.Request) {
+	logs.Log.PushFuncName("users", "api", "set")
 	defer logs.Log.PopFuncName()
 
 	logs.Log.Debug("BEGIN")

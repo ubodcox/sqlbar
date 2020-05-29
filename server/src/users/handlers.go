@@ -49,38 +49,14 @@ func init() {
 
 	logs.Log.Info("IMPORTED")
 
-	chainMiddleWare := core.ChainMiddleWare(core.WithLogging, core.WithAuth)
-
-	//auth
-	/* http.HandleFunc("/auth.html", func(w http.ResponseWriter, r *http.Request) {
-		core.DefaultHandler(w, r, "users", "auth")
-	})
-	// html
-	http.HandleFunc("/users/data.html", chainMiddleWare(func(w http.ResponseWriter, r *http.Request) {
-		core.DefaultHandler(w, r, "users", "data")
-	}))
-	http.HandleFunc("/users/insert.html", chainMiddleWare(func(w http.ResponseWriter, r *http.Request) {
-		core.DefaultHandler(w, r, "users", "insert")
-	}))
-	http.HandleFunc("/users/update.html", chainMiddleWare(func(w http.ResponseWriter, r *http.Request) {
-		core.DefaultHandler(w, r, "users", "update")
-	}))
-	http.HandleFunc("/users/profile.html", chainMiddleWare(func(w http.ResponseWriter, r *http.Request) {
-		core.DefaultHandler(w, r, "users", "profile")
-	})) */
-
-	/* http.HandleFunc("/users/exec_insert.html", usersExecInsertHandler)
-	http.HandleFunc("/users/exec_update.html", usersExecUpdateHandler)
-	http.HandleFunc("/users/exec_delete.html", usersExecDeleteHandler) */
+	//chainMiddleWare := core.ChainMiddleWare(core.WithLogging, core.WithAuth)
 
 	// api
 	//http.HandleFunc("/api/v1/users/noauth", api.noauth)
-	http.HandleFunc("/api/v1/users/signup", chainMiddleWare(api.insert))
+	http.HandleFunc("/api/v1/users/signup", api.insert)
 	http.HandleFunc("/api/v1/users/signin", api.auth)
-	http.HandleFunc("/api/v1/users/signout", api.auth)
+	http.HandleFunc("/api/v1/users/signout", core.WithAuth(api.auth))
 
-	//http.HandleFunc("/api/v1/users/delete", chainMiddleWare(api.delete))
-	http.HandleFunc("/api/v1/users/get", chainMiddleWare(api.data))
-	http.HandleFunc("/api/v1/users/set", chainMiddleWare(api.update))
-
+	http.HandleFunc("/api/v1/users/get", api.get)
+	http.HandleFunc("/api/v1/users/set", core.WithAuth(api.set))
 }
